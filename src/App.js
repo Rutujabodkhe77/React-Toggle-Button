@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import './rutuja.css';
+import React,{useState} from 'react';
+function App()
+{
+const[myCondition,changeMyCondition]=useState(true);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+let myDesign = '';
+
+let style={ 
+  backgroundColor:'red',
+  color:"white",
+  margin:'50px'
+};
+ 
+
+
+// const showMyDivFunc=()=>
+//   {
+//     changeMyCondition(true);
+//   }
+
+// const hideMyDivFunc=()=>
+//   {
+//     changeMyCondition(false);
+//   }
+const ToggleMyDivFunc=()=>
+  {
+   let Mycondition2 = myCondition;
+   
+   changeMyCondition(!Mycondition2);
+  }
+
+if(myCondition)
+{
+  myDesign=(
+    <div className ="main_div">
+    <h1>This Is DIV</h1>
     </div>
   );
+  style.backgroundColor="green";
+}
+else{
+  style.backgroundColor="red";
 }
 
-export default App;
+
+
+  return(
+    <div>
+{/* <button className="showBTN" onClick={showMyDivFunc}>Show Div</button>
+<button className="hideBTN" onClick={hideMyDivFunc}>Hide Div</button> */}
+
+<button className="my_align" onClick={ToggleMyDivFunc}>Toggle Button</button>
+
+
+{myDesign}
+
+    </div>
+  );
+
+}
+ export default App;
